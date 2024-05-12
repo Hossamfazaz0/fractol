@@ -10,6 +10,11 @@
 
 #define WIDTH 800
 #define HEIGHT 800
+typedef struct s_complex{
+    double x;
+    double y;
+}              t_complex;
+
 typedef struct s_image
 {
     void *img;
@@ -28,5 +33,6 @@ typedef struct s_fractal
 }           t_fractal;
 
 void fractol_init(t_fractal *fractal);
+double scale(double unscaled_num,double new_min,double new_max,double old_min,double old_max);
 
 #endif
