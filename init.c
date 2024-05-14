@@ -23,6 +23,7 @@ void fractol_init(t_fractal *fractal) {
     if (fractal->img.img == NULL) {
         mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
         mlx_destroy_display(fractal->mlx_connection);
+        free(fractal->mlx_connection);
         malloc_error();
     }
 
@@ -34,4 +35,9 @@ void fractol_init(t_fractal *fractal) {
         mlx_destroy_display(fractal->mlx_connection);
         malloc_error();
     }
+    fractal->img.addr = mlx_get_data_addr(fractal->mlx_connection,
+                                            &fractal->img.bbp,
+                                            &fractal->img.len,
+                                            &fractal->img.endian);
+    data_init(fractal);
 }

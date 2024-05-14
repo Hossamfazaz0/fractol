@@ -2,7 +2,9 @@
 
 static void my_pixel_put(int x,int y , t_image *img,int color)
 {
-    
+    int offset;
+    offset = (y * img->len) + (x*(img->bbp / 8));
+    color = *(unsigned int *)(img->addr+offset);
 }
 
 void handle_pixel(int x,int y,t_fractal *fractal)
@@ -24,10 +26,12 @@ void handle_pixel(int x,int y,t_fractal *fractal)
         if((z.x *z.x) + (z.y *z.y) > 4)
         {
             color = scale(i,BLACK,WHITE,0,42);
-            my_pixel_put();
+            my_pixel_put(x,y,&fractal->img,color);
             return;
         }
+        i++;
     }
+    my_pixel_put(x,y,&fractal->img,CYAN);
 
 }
 void fractal_render(t_fractal *fractal)
@@ -44,4 +48,7 @@ void fractal_render(t_fractal *fractal)
             handle_pixel(x,y,fractal);
         }
     }
+    mlx_put_image_to_window(fractal->mlx_connection,
+                            fractal->mlx_window,
+                            fractal->img.addr,0,0);
 }

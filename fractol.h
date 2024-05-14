@@ -21,6 +21,8 @@
 #define GRAY 0x808080
 #define LIGHT_GRAY 0xC0C0C0
 #define DARK_GRAY 0x404040
+
+
 typedef struct s_complex{
     double x;
     double y;
@@ -47,5 +49,8 @@ void fractol_init(t_fractal *fractal);
 double scale(double unscaled_num,double new_min,double new_max,double old_min,double old_max);
 t_complex square_complex(t_complex z);
 t_complex sum_complex(t_complex z1, t_complex z2);
+void    fractal_render(t_fractal *fractal);
+void handle_pixel(int x,int y,t_fractal *fractal);
+
 
 #endif
