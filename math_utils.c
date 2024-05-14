@@ -11,3 +11,10 @@ t_complex sum_complex(t_complex z1, t_complex z2)
     res.y = z1.y + z2.y;
     return res;
 }
+t_complex square_complex(t_complex z)
+{
+    t_complex res;
+    res.x= (z.x * z.x) - (z.y * z.y);
+    res.y = 2 * z.x * z.y;
+    return res;
+}
