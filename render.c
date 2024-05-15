@@ -3,9 +3,7 @@
 static void my_pixel_put(int x, int y, t_image *img, int color)
 {
     int offset;
-    // Calculate the offset within the image buffer
     offset = (y * img->len) + (x * (img->bbp / 8));
-    // Assign the color value at the calculated offset
     *(unsigned int *)(img->addr + offset) = color;
 }
 
@@ -36,8 +34,7 @@ void handle_pixel(int x, int y, t_fractal *fractal)
         }
         i++;
     }
-    // If the loop finishes without escaping, set the pixel color to CYAN
-    my_pixel_put(x, y, &fractal->img, CYAN);
+    my_pixel_put(x, y, &fractal->img, MAGENTA);
 }
 
 void fractal_render(t_fractal *fractal)
@@ -45,12 +42,11 @@ void fractal_render(t_fractal *fractal)
     int x;
     int y;
 
-    // Iterate over all pixels in the image buffer
     for (y = 0; y < HEIGHT; y++)
     {
         for (x = 0; x < WIDTH; x++)
         {
-            // Calculate and handle each pixel
+            
             handle_pixel(x, y, fractal);
         }
     }

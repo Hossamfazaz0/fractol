@@ -8,6 +8,7 @@ int main(int ac , char **av)
     {
         fractal.name = av[1];
         fractol_init(&fractal);
+        mlx_hook(fractal.mlx_window,2,0,close_window,&fractal);
         fractal_render(&fractal);
         mlx_loop(fractal.mlx_connection);
     }

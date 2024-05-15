@@ -51,6 +51,6 @@ t_complex square_complex(t_complex z);
 t_complex sum_complex(t_complex z1, t_complex z2);
 void    fractal_render(t_fractal *fractal);
 void handle_pixel(int x,int y,t_fractal *fractal);
-
+int close_window(int key_num,t_fractal *fractal);
 
 #endif
