@@ -17,10 +17,10 @@ void handle_pixel(int x, int y, t_fractal *fractal)
     z.x = 0.0;
     z.y = 0.0;
 
-    c.x = scale(x, -2, 2, 0, WIDTH);
-    c.y = scale(y, 2, -2, 0, HEIGHT);
+    c.x = (scale(x, -2, 2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
+    c.y = (scale(y, 2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
 
-    while (i < 2000)
+    while (i < fractal->iteration)
     {
         // Iterate the fractal equation
         z = sum_complex(square_complex(z), c);
@@ -28,13 +28,14 @@ void handle_pixel(int x, int y, t_fractal *fractal)
         if ((z.x * z.x) + (z.y * z.y) > 4)
         {
             // Color the pixel based on the iteration count
-            color = scale(i, BLACK, WHITE, 0, 2000);
+            color = scale(i, BLACK, WHITE, 0, fractal->iteration);
             my_pixel_put(x, y, &fractal->img, color);
             return;
         }
         i++;
     }
-    my_pixel_put(x, y, &fractal->img, MAGENTA);
+    my_pixel_put(x, y, &fractal->img, LIGHT_GRAY);
+    // fractal_render(fractal);
 }
 
 void fractal_render(t_fractal *fractal)

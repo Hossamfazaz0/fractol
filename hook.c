@@ -1,7 +1,31 @@
 #include "fractol.h"
 
-int close_window(int key_num,t_fractal *fractal)
+int keyboard_handle(int keysym,t_fractal *fractal)
 {
-    if(key_num == 53)
-        mlx_destroy_window(fractal->mlx_connection,fractal->mlx_window);
-    return (0);
+    if(keysym == XK_Escape)// esc
+    {
+        mlx_destroy_image(fractal->mlx_connection, fractal->img.img);
+
+        mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
+        mlx_destroy_display(fractal->mlx_connection);
+        free(fractal->mlx_connection);
+        exit(0);
+    }
+    else if(keysym == XK_Left)
+        fractal->shift_x -= 0.1;
+    else if(keysym == XK_Right) 
+        fractal->shift_x += 0.1;
+    else if(keysym == XK_Up) 
+        fractal->shift_y += 0.1;
+    else if(keysym == XK_Down) 
+        fractal->shift_y -= 0.1;
+   fractal_render(fractal);
+}
+int mouse_handler(int button,int x,int y,t_fractal *fractal)
+{
+    if(button == Button5)
+        fractal->zoom*= 0.5;
+    if(button == Button4)
+        fractal->zoom/=0.5;
+fractal_render(fractal);
+}
