@@ -12,13 +12,13 @@ int keyboard_handle(int keysym,t_fractal *fractal)
         exit(0);
     }
     else if(keysym == XK_Left)
-        fractal->shift_x -= 0.1;
+        fractal->shift_x -= 0.5;
     else if(keysym == XK_Right) 
-        fractal->shift_x += 0.1;
+        fractal->shift_x += 0.5;
     else if(keysym == XK_Up) 
-        fractal->shift_y += 0.1;
+        fractal->shift_y += 0.5;
     else if(keysym == XK_Down) 
-        fractal->shift_y -= 0.1;
+        fractal->shift_y -= 0.5;
    fractal_render(fractal);
 }
 int mouse_handler(int button,int x,int y,t_fractal *fractal)

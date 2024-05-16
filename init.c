@@ -6,7 +6,7 @@ void malloc_error() {
 }
 void data_init(t_fractal *fractal)
 {
-    fractal->iteration = 100;
+    fractal->iteration = 42;
     fractal->shift_x = 0.0;
     fractal->shift_y = 0.0;
     fractal->zoom = 1.0;

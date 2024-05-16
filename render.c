@@ -6,7 +6,19 @@ static void my_pixel_put(int x, int y, t_image *img, int color)
     offset = (y * img->len) + (x * (img->bbp / 8));
     *(unsigned int *)(img->addr + offset) = color;
 }
-
+void mandel_julia(t_complex *z,t_complex *c,t_fractal *fractal)
+{
+    if(!strcmp(fractal->name,"julia"))
+    {
+        c->x = fractal->julia_x;
+        c->y = fractal->julia_y;
+    }
+    else
+    {
+        c->x = z->x;
+        c->y = z->y;
+    }
+}
 void handle_pixel(int x, int y, t_fractal *fractal)
 {
     t_complex z;
@@ -14,13 +26,14 @@ void handle_pixel(int x, int y, t_fractal *fractal)
     int i = 0;
     int color;
 
-    z.x = 0.0;
-    z.y = 0.0;
 
-    c.x = (scale(x, -2, 2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
-    c.y = (scale(y, 2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
+    z.x = (scale(x, -2, 2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
+    z.y = (scale(y, 2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
 
-    while (i < fractal->iteration)
+
+    mandel_julia(&z,&c,fractal);
+
+    while (i <fractal->iteration)
     {
         // Iterate the fractal equation
         z = sum_complex(square_complex(z), c);
@@ -34,7 +47,7 @@ void handle_pixel(int x, int y, t_fractal *fractal)
         }
         i++;
     }
-    my_pixel_put(x, y, &fractal->img, LIGHT_GRAY);
+    my_pixel_put(x, y, &fractal->img, DARK_GRAY);
     // fractal_render(fractal);
 }
 

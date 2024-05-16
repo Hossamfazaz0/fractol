@@ -49,6 +49,8 @@ typedef struct s_fractal
     double shift_x;
     double shift_y;
     double zoom;
+    double julia_x;
+    double julia_y;
 }           t_fractal;
 
 void fractol_init(t_fractal *fractal);
@@ -60,5 +62,5 @@ void handle_pixel(int x,int y,t_fractal *fractal);
 int keyboard_handle(int key_num,t_fractal *fractal);
 void data_init(t_fractal *fractal);
 int mouse_handler(int button,int x,int y,t_fractal *fractal);
-
+double	atodbl(char *s);
 #endif
