@@ -4,7 +4,7 @@ int ft_strncmp(char *s1,char *s2, int n)
 {
     
 }
-double	atodbl(char *s)
+long double	atodbl(char *s)
 {
 	long	integer_part;
 	double	fractional_part;

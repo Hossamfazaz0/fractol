@@ -35,12 +35,9 @@ void handle_pixel(int x, int y, t_fractal *fractal)
 
     while (i <fractal->iteration)
     {
-        // Iterate the fractal equation
         z = sum_complex(square_complex(z), c);
-        // Check if the point is outside the fractal boundary
         if ((z.x * z.x) + (z.y * z.y) > 4)
         {
-            // Color the pixel based on the iteration count
             color = scale(i, BLACK, WHITE, 0, fractal->iteration);
             my_pixel_put(x, y, &fractal->img, color);
             return;
@@ -48,23 +45,20 @@ void handle_pixel(int x, int y, t_fractal *fractal)
         i++;
     }
     my_pixel_put(x, y, &fractal->img, DARK_GRAY);
-    // fractal_render(fractal);
+
 }
 
 void fractal_render(t_fractal *fractal)
 {
     int x;
     int y;
-
-    for (y = 0; y < HEIGHT; y++)
+    y=0;
+    while( y++ < HEIGHT)
     {
-        for (x = 0; x < WIDTH; x++)
-        {
-            
+        x=0;
+        while ( x++ < WIDTH)
             handle_pixel(x, y, fractal);
-        }
     }
-    // Display the rendered fractal in the window
     mlx_put_image_to_window(fractal->mlx_connection,
                             fractal->mlx_window,
                             fractal->img.img,

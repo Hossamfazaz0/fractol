@@ -62,5 +62,5 @@ void handle_pixel(int x,int y,t_fractal *fractal);
 int keyboard_handle(int key_num,t_fractal *fractal);
 void data_init(t_fractal *fractal);
 int mouse_handler(int button,int x,int y,t_fractal *fractal);
-double	atodbl(char *s);
+long double	atodbl(char *s);
 #endif
