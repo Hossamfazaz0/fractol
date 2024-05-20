@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/20 18:44:39 by hfazaz            #+#    #+#             */
+/*   Updated: 2024/05/20 20:29:30 by hfazaz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-int ft_strncmp(char *s1,char *s2, int n)
+int	ft_strcmp(char *s1, char *s2, int n)
 {
-    
 }
+
 long double	atodbl(char *s)
 {
 	long	integer_part;
