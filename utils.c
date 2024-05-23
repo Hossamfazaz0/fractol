@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:39 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/20 20:29:30 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/23 18:19:19 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,27 @@ int	ft_strcmp(char *s1, char *s2, int n)
 {
 }
 
-long double	atodbl(char *s)
-{
-	long	integer_part;
-	double	fractional_part;
-	double	pow;
-	int		sign;
+long double atodbl(char *s) {
+	long integer_part = 0;
+	double fractional_part = 0;
+	double pow = 1;
+	int sign = 1;
 
-	integer_part = 0;
-	fractional_part = 0;
-	sign = +1;
-	pow = 1;
-	while ((*s >= 9 && *s <= 13) || 32 == *s)
+	while ((*s >= 9 && *s <= 13) || *s == 32)
 		++s;
-	while ('+' == *s || '-' == *s)
-		if ('-' == *s++)
-			sign = -sign;
-	while (*s != '.' && *s)
-		integer_part = (integer_part * 10) + (*s++ - 48);
-	if ('.' == *s)
-		++s;
-	while (*s)
-	{
-		pow /= 10;
-		fractional_part = fractional_part + (*s++ - 48) * pow;
+
+	if (*s == '+' || *s == '-') {
+		if (*s++ == '-')
+			sign = -1;
 	}
-	return ((integer_part + fractional_part) * sign);
+
+	while (*s != '.' && *s)
+		integer_part = (integer_part * 10) + (*s++ - '0');
+
+	if (*s == '.')
+		while (*++s)
+			fractional_part += (*s - '0') * (pow /= 10);
+
+	return (integer_part + fractional_part) * sign;
 }
+

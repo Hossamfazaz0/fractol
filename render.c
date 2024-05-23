@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:36 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/20 20:28:18 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/23 17:46:27 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			color = scale(i, BLACK, WHITE, fractal->iteration);
-			my_pixel_put(x, y, &fractal->img, color);
+			my_pixel_put(x, y, &fractal->img,color);
 			return ;
 		}
 		i++;
 	}
-	my_pixel_put(x, y, &fractal->img, DARK_GRAY);
+	my_pixel_put(x, y, &fractal->img, YELLOW);
 }
 
 void	fractal_render(t_fractal *fractal)

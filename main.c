@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:31 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/20 20:25:56 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:00:42 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,15 @@ int	main(int ac, char **av)
 				printf("Error: Julia parameters must be valid float.\n");
 				return (1);
 			}
-			fractal.julia_x = atof(av[2]);
-			fractal.julia_y = atof(av[3]);
+			fractal.julia_x = atodbl(av[2]);
+			fractal.julia_y = atodbl(av[3]);
 		}
 		fractol_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-	{
-		printf("Usage: mandelbrot\n Usage:  julia <julia_x> <julia_y>\n");
-		return (1);
-	}
+		return (printf("Usage: mandelbrot\n Usage: j\
+		ulia <julia_x> <julia_y>\n"), 1);
 	return (0);
 }
