@@ -6,14 +6,13 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:31 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/23 16:00:42 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:54:58 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <ctype.h>
 
-int	valid(const char *str)
+static int	valid(const char *str)
 {
 	int	has_dot;
 	int	has_digit;
@@ -43,15 +42,15 @@ int	main(int ac, char **av)
 {
 	t_fractal	fractal;
 
-	if ((ac == 2 && strcmp(av[1], "mandelbrot") == 0)
-		|| (ac == 4 && strcmp(av[1], "julia") == 0))
+	if ((ac == 2 && ft_strcmp(av[1], "mandelbrot") == 0) || (ac == 4
+			&& ft_strcmp(av[1], "julia") == 0))
 	{
 		fractal.name = av[1];
-		if (ac == 4 && strcmp(av[1], "julia") == 0)
+		if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
 		{
 			if (!valid(av[2]) || !valid(av[3]))
 			{
-				printf("Error: Julia parameters must be valid float.\n");
+				write(1, "Error: Julia parameters must be valid float.\n", 44);
 				return (1);
 			}
 			fractal.julia_x = atodbl(av[2]);
@@ -62,7 +61,7 @@ int	main(int ac, char **av)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-		return (printf("Usage: mandelbrot\n Usage: j\
-		ulia <julia_x> <julia_y>\n"), 1);
+		return (write(1, "Usage: mandelbrot\nUsage: julia <julia_x> \
+<julia_y>\n", 51), 1);
 	return (0);
 }

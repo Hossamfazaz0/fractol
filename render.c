@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:36 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/23 17:46:27 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:55:20 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	my_pixel_put(int x, int y, t_image *img, int color)
 
 void	mandel_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 {
-	if (!strcmp(fractal->name, "julia"))
+	if (!ft_strcmp(fractal->name, "julia"))
 	{
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;
@@ -51,7 +51,7 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			color = scale(i, BLACK, WHITE, fractal->iteration);
-			my_pixel_put(x, y, &fractal->img,color);
+			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
 		i++;

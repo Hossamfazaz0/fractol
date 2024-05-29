@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:08 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/23 17:56:09 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:54:08 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	malloc_error(void)
 
 void	data_init(t_fractal *fractal)
 {
-	fractal->iteration = 3000;
+	fractal->iteration = 42;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;

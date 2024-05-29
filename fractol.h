@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:20 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/20 18:58:19 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:44:00 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ int			keyboard_handle(int key_num, t_fractal *fractal);
 void		data_init(t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, t_fractal *fractal);
 long double	atodbl(char *s);
+int			ft_strcmp(char *s1, char *s2);
 #endif
