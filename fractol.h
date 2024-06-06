@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:20 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/29 20:44:00 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/30 01:50:52 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+#include <unistd.h>
 
 # define WIDTH 800
 # define HEIGHT 800

@@ -6,11 +6,15 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:31 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/29 20:54:58 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/30 01:59:35 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
 
 static int	valid(const char *str)
 {
@@ -29,7 +33,7 @@ static int	valid(const char *str)
 				return (0);
 			has_dot = 1;
 		}
-		else if (isdigit(*str))
+		else if (ft_isdigit(*str))
 			has_digit = 1;
 		else
 			return (0);
@@ -50,7 +54,7 @@ int	main(int ac, char **av)
 		{
 			if (!valid(av[2]) || !valid(av[3]))
 			{
-				write(1, "Error: Julia parameters must be valid float.\n", 44);
+				write(2, "Error: Julia parameters must be valid float.\n", 44);
 				return (1);
 			}
 			fractal.julia_x = atodbl(av[2]);
@@ -61,7 +65,7 @@ int	main(int ac, char **av)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-		return (write(1, "Usage: mandelbrot\nUsage: julia <julia_x> \
+		return (write(2, "Usage: mandelbrot\nUsage: julia <julia_x> \
 <julia_y>\n", 51), 1);
 	return (0);
 }

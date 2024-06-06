@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:26 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/27 17:51:22 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/30 02:00:18 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,17 @@ int	keyboard_handle(int keysym, t_fractal *fractal)
 	else if (keysym == XK_KP_Add)
 		fractal->iteration += 100;
 	fractal_render(fractal);
+	return (0);
 }
 
 int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
+	(void)x;
+	(void)y;
 	if (button == Button5)
 		fractal->zoom *= 0.5;
-	if (button == Button4)
+	else if (button == Button4)
 		fractal->zoom /= 0.5;
 	fractal_render(fractal);
+	return(0);
 }

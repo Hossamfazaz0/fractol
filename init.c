@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:08 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/29 20:54:08 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/05/30 02:04:57 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	malloc_error(void)
 {
-	printf("error with allocation");
+	write(2,"error with allocation",22);
 	return ;
 }
 
 void	data_init(t_fractal *fractal)
 {
-	fractal->iteration = 42;
+	fractal->iteration = 2042;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
