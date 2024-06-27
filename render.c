@@ -56,7 +56,7 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 		}
 		i++;
 	}
-	my_pixel_put(x, y, &fractal->img, WHITE);
+	my_pixel_put(x, y, &fractal->img, 0xFCBE11);
 }
 
 void	fractal_render(t_fractal *fractal)

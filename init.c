@@ -14,7 +14,7 @@
 
 void	malloc_error(void)
 {
-	write(2,"error with allocation",22);
+	write(2, "error with allocation", 22);
 	return ;
 }
 

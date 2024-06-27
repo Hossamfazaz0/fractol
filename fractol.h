@@ -13,14 +13,14 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "minilibx-linux/mlx.h"
+# include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-#include <unistd.h>
+# include <unistd.h>
 
 # define WIDTH 800
 # define HEIGHT 800
