@@ -6,7 +6,7 @@
 /*   By: hfazaz <hfazaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:44:36 by hfazaz            #+#    #+#             */
-/*   Updated: 2024/05/30 02:11:47 by hfazaz           ###   ########.fr       */
+/*   Updated: 2024/07/16 02:30:21 by hfazaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 
 	i = 0;
 	z.x = (scale(x, -2, 2, WIDTH) * fractal->zoom) + fractal->shift_x;
-	z.y = (scale(y, 2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	z.y = (scale(y, -2, 2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	mandel_julia(&z, &c, fractal);
 	while (i < fractal->iteration)
 	{
@@ -56,7 +56,7 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 		}
 		i++;
 	}
-	my_pixel_put(x, y, &fractal->img, 0xFCBE11);
+	my_pixel_put(x, y, &fractal->img, CYAN);
 }
 
 void	fractal_render(t_fractal *fractal)
